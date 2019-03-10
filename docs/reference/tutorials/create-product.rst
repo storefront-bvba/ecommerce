@@ -31,12 +31,12 @@ Run the following command to create the files:
 
 	php bin/console sonata:product:generate Bowl sonata.ecommerce_demo.product.bowl App
 
-The required base files will be created in ``src/Application/Sonata/ProductBundle``.
-To finalize the installation, we have to define the missing parameters like the type itself and the related manager. These data have to be provided in ``src/Application/Sonata/ProductBundle/Resources/config/product.yml``.
+The required base files will be created in ``src/Sonata/ProductBundle``.
+To finalize the installation, we have to define the missing parameters like the type itself and the related manager. These data have to be provided in ``src/Sonata/ProductBundle/Resources/config/product.yml``.
 
 .. code-block:: yaml
 
-    # src/Application/Sonata/ProductBundle/Resources/config/product.yml
+    # src/Sonata/ProductBundle/Resources/config/product.yml
 
     services:
         sonata.ecommerce_demo.product.bowl.manager:
@@ -74,7 +74,7 @@ And finally, add in the ``app/config/sonata/sonata_product.yml`` the following d
 
 **IMPORTANT**
 
-This being done, edit the ``src/Application/Sonata/ProductBundle/Entity/Bowl.php`` to make it inherits the ``Product`` class.
+This being done, edit the ``src/Sonata/ProductBundle/Entity/Bowl.php`` to make it inherits the ``Product`` class.
 
 Configuration - Backoffice
 --------------------------
@@ -104,11 +104,11 @@ Configuration - files' edition
 ------------------------------
 In order to create a `Product` with a variation (a `spoon` in our example), we will have to repeat the same steps as explained in the previous section, in the *Configuration - files' edition* part. For the purpose of this example, we will use ``Spoon`` as entity name and ``sonata.ecommerce_demo.product.spoon`` as service name.
 
-Once you've completed the whole process, we will now learn how to add variable fields. In our case, it will be the size. To do so, add the "size" property in the entity (``src/Application/Sonata/ProductBundle/Entity/Spoon.php``):
+Once you've completed the whole process, we will now learn how to add variable fields. In our case, it will be the size. To do so, add the "size" property in the entity (``src/Sonata/ProductBundle/Entity/Spoon.php``):
 
 .. code-block:: php
 
-    // src/Application/Sonata/ProductBundle/Entity/Spoon.php
+    // src/Sonata/ProductBundle/Entity/Spoon.php
 
     <?php
 
@@ -139,7 +139,7 @@ Still in the same file, we will provide a list of possible values for this field
 
 .. code-block:: php
 
-    // src/Application/Sonata/ProductBundle/Entity/Spoon.php
+    // src/Sonata/ProductBundle/Entity/Spoon.php
 
     <?php
 
@@ -161,12 +161,12 @@ Still in the same file, we will provide a list of possible values for this field
         );
     }
 
-Now, we have to add this field in our entity. Considering you are using Doctrine ORM, you should add the following line in ``src/Application/Sonata/ProductBundle/Resources/config/doctrine/Jersey.orm.xml``:
+Now, we have to add this field in our entity. Considering you are using Doctrine ORM, you should add the following line in ``src/Sonata/ProductBundle/Resources/config/doctrine/Jersey.orm.xml``:
 
 
 .. code-block:: xml
 
-    // src/Application/Sonata/ProductBundle/Resources/config/doctrine/Jersey.orm.xml
+    // src/Sonata/ProductBundle/Resources/config/doctrine/Jersey.orm.xml
 
     <field name="size" column="size" type="string" length="50" nullable="true" />
 
