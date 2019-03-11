@@ -42,11 +42,11 @@ To finalize the installation, we have to define the missing parameters like the 
         sonata.ecommerce_demo.product.bowl.manager:
             class: Sonata\ProductBundle\Entity\ProductManager
             arguments:
-                - App\Application\Sonata\ProductBundle\Entity\Bowl
+                - App\Sonata\ProductBundle\Entity\Bowl
                 - '@sonata.product.entity_manager'
 
         sonata.ecommerce_demo.product.bowl.type:
-            class: App\Application\Sonata\ProductBundle\Provider\BowlProductProvider
+            class: App\Sonata\ProductBundle\Provider\BowlProductProvider
             arguments:
                 - '@serializer'
 
@@ -192,7 +192,7 @@ And if everything is ok, perform to the modification:
     php bin/console doctrine:schema:update --force
 
 If you go back to the *product creation* page, you should be able to see our provider and display its page without any error. Though, the size field is not available yet. We have to enable it manually by overriding the ``SpoonProductProvider::buildEditForm()`` method.
-You first should add the usage of ``App\Application\Sonata\ProductBundle\Entity\Spoon`` class:
+You first should add the usage of ``App\Sonata\ProductBundle\Entity\Spoon`` class:
 
 .. code-block:: php
 

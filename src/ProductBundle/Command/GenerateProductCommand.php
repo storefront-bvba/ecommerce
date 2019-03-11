@@ -53,7 +53,7 @@ class GenerateProductCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
         // find a better way to detect the Application folder
-        $bundle_dir = sprintf('%s/src/Application/Sonata/ProductBundle',
+        $bundle_dir = sprintf('%s/src/Sonata/ProductBundle',
                               $this->kernel->getProjectDir()
         );
 
@@ -143,11 +143,11 @@ class GenerateProductCommand extends Command
     {{ service }}.manager:
         class: Sonata\ProductBundle\Entity\ProductManager
         arguments:
-            - {{ namespace_prefix }}Application\Sonata\ProductBundle\Entity\{{ product }}
+            - {{ namespace_prefix }}Sonata\ProductBundle\Entity\{{ product }}
             - "@doctrine"
 
     {{ service }}.type:
-        class: {{ namespace_prefix }}Application\Sonata\ProductBundle\Provider\{{ product }}ProductProvider
+        class: {{ namespace_prefix }}Sonata\ProductBundle\Provider\{{ product }}ProductProvider
         arguments:
             - "@jms_serializer"
 
@@ -163,7 +163,7 @@ class GenerateProductCommand extends Command
 
 Add this line in <comment>/src/Sonata/ProductBundle/Resources/config/serializer/Entity.Product.xml</comment>
 
-    <discriminator-class value="{{ service }}">{{ namespace_prefix }}Application\Sonata\ProductBundle\Entity\{{ product }}</discriminator-class>
+    <discriminator-class value="{{ service }}">{{ namespace_prefix }}Sonata\ProductBundle\Entity\{{ product }}</discriminator-class>
 
 You can customize the serialization of your Product by editing /src/Sonata/ProductBundle/Resources/config/serializer/Entity.Product.xml
 (see JMS serializer documentation for more information).
