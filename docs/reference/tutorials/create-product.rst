@@ -29,7 +29,7 @@ Run the following command to create the files:
 
 .. code-block:: bash
 
-	php bin/console sonata:product:generate Bowl sonata.ecommerce_demo.product.bowl
+	php bin/console sonata:product:generate Bowl sonata.ecommerce_demo.product.bowl App
 
 The required base files will be created in ``src/Sonata/ProductBundle``.
 To finalize the installation, we have to define the missing parameters like the type itself and the related manager. These data have to be provided in ``src/Sonata/ProductBundle/Resources/config/product.yml``.
@@ -71,6 +71,8 @@ And finally, add in the ``app/config/sonata/sonata_product.yml`` the following d
                 provider: sonata.ecommerce_demo.product.bowl.type
                 manager: sonata.ecommerce_demo.product.bowl.manager
 
+
+**IMPORTANT**
 
 This being done, edit the ``src/Sonata/ProductBundle/Entity/Bowl.php`` to make it inherits the ``Product`` class.
 
