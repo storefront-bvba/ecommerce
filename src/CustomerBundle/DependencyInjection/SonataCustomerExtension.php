@@ -145,6 +145,16 @@ class SonataCustomerExtension extends Extension implements PrependExtensionInter
             'orphanRemoval' => false,
         ]);
 
+        $collector->addAssociation($config['class']['user'], 'mapOneToMany', [
+            'fieldName' => 'customers',
+            'targetEntity' => $config['class']['customer'],
+            'cascade' => [
+                'persist',
+            ],
+            'mappedBy' => 'user',
+            'orphanRemoval' => false,
+        ]);
+
         $collector->addAssociation($config['class']['address'], 'mapManyToOne', [
             'fieldName' => 'customer',
             'targetEntity' => $config['class']['customer'],
