@@ -125,6 +125,16 @@ class SonataCustomerExtension extends Extension
             ],
             'orphanRemoval' => false,
         ]);
+    
+        $collector->addAssociation($config['class']['user'], 'mapOneToMany', [
+            'fieldName' => 'customers',
+            'targetEntity' => $config['class']['customer'],
+            'cascade' => [
+                'persist',
+            ],
+            'mappedBy' => 'user',
+            'orphanRemoval' => false,
+        ]);
 
         $collector->addAssociation($config['class']['address'], 'mapManyToOne', [
             'fieldName' => 'customer',
