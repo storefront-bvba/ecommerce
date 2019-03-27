@@ -17,8 +17,8 @@ use Sonata\EasyExtendsBundle\Mapper\DoctrineCollector;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
@@ -36,6 +36,7 @@ class SonataCustomerExtension extends Extension implements PrependExtensionInter
             $container->prependExtensionConfig('twig', ['form_themes' => ['@SonataCore/Form/datepicker.html.twig']]);
         }
     }
+
     /**
      * Loads the customer configuration.
      *
