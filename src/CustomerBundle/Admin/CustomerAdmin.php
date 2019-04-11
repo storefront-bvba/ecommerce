@@ -144,7 +144,7 @@ class CustomerAdmin extends AbstractAdmin
 
         $menu->addChild(
             'customer.sidemenu.link_address_list',
-            $admin->generateMenuUrl('sonata.customer.admin.address.list', ['id' => $id])
+            $admin->generateMenuUrl('sonata.customer.admin.customer|sonata.customer.admin.address.list', ['id' => $id])
         );
 
         $menu->addChild(
